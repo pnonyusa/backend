@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.mypicknpay.webApi.WebApiApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 50.285 s - in com.mypicknpay.webApi.WebApiApplicationTests

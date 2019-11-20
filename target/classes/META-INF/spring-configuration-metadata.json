@@ -1,0 +1,77 @@
+{
+  "groups": [
+    {
+      "name": "file",
+      "type": "com.mypicknpay.webApi.jwt.response.FileStorageProperties",
+      "sourceType": "com.mypicknpay.webApi.jwt.response.FileStorageProperties"
+    },
+    {
+      "name": "jwt",
+      "type": "com.mypicknpay.webApi.security.jwt.JwtProperties",
+      "sourceType": "com.mypicknpay.webApi.security.jwt.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": ".app.jwtSecret",
+      "type": "java.lang.String",
+      "description": "A description for '.app.jwtSecret'"
+    },
+    {
+      "name": "app.jwtExpiration",
+      "type": "java.lang.String",
+      "description": "A description for 'app.jwtExpiration'"
+    },
+    {
+      "name": "app.jwtSecret",
+      "type": "java.lang.String",
+      "description": "A description for 'app.jwtSecret'"
+    },
+    {
+      "name": "file.upload-dir",
+      "type": "java.lang.String",
+      "sourceType": "com.mypicknpay.webApi.jwt.response.FileStorageProperties"
+    },
+    {
+      "name": "jwt.e-x-p-i-r-a-t-i-o-n-t-i-m-e",
+      "type": "java.lang.Long",
+      "sourceType": "com.mypicknpay.webApi.security.jwt.JwtProperties"
+    },
+    {
+      "name": "jwt.h-e-a-d-e-r-s-t-r-i-n-g",
+      "type": "java.lang.String",
+      "sourceType": "com.mypicknpay.webApi.security.jwt.JwtProperties"
+    },
+    {
+      "name": "jwt.s-e-c-r-e-t",
+      "type": "java.lang.String",
+      "sourceType": "com.mypicknpay.webApi.security.jwt.JwtProperties"
+    },
+    {
+      "name": "jwt.t-o-k-e-n-p-r-e-f-i-x",
+      "type": "java.lang.String",
+      "sourceType": "com.mypicknpay.webApi.security.jwt.JwtProperties"
+    },
+    {
+      "name": "se",
+      "type": "java.lang.String",
+      "description": "A description for 'se'"
+    },
+    {
+      "name": "security.jwt.JwtSecretKey",
+      "type": "java.lang.String",
+      "description": "A description for 'security.jwt.JwtSecretKey'"
+    },
+    {
+      "name": "security.jwt.jwtExpiration",
+      "type": "java.lang.String",
+      "description": "A description for 'security.jwt.jwtExpiration'"
+    },
+    {
+      "name": "security.jwt.jwtSecret",
+      "type": "java.lang.String",
+      "description": "A description for 'security.jwt.jwtSecret'"
+    }
+  ],
+  "hints": []
+}
