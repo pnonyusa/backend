@@ -2,10 +2,11 @@ package com.mypicknpay.webApi.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,9 +14,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
+import javax.persistence.Table;
+
 import java.util.List;
 
+
+@Entity
+@Table(name="tbl_ShoppingCart")
 public class ShoppingCart implements Serializable{
 
 	/**
@@ -30,12 +36,12 @@ public class ShoppingCart implements Serializable{
 	@Column(name="cart_Id")
 	private Long id;
 	
-	/*
-	 *every single user can be able to single cart 
-	 * */
-	 @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-     @JoinColumn(name = "appUser_Id",referencedColumnName = "cart_Id")
-	 private AppUser user;
+	
+	
+	
+	
+	
+	
 	 
 	 
 	 /*
@@ -68,6 +74,25 @@ public class ShoppingCart implements Serializable{
 	 
 	 
 	 
+	 public ShoppingCart(Discount cartDisc, List<ShoppingList> shopList, double totalPrice, double totalNetPrice,
+			Date dateCreated) {
+		
+		this.cartDisc = cartDisc;
+		this.shopList = shopList;
+		this.totalPrice = totalPrice;
+		this.totalNetPrice = totalNetPrice;
+		this.dateCreated = dateCreated;
+	}
+
+
+	
+
+	 
+	 public ShoppingCart() {
+		 
+		 
+	 }
+
 	 public Long getId() {
 		return id;
 	 }
@@ -78,15 +103,7 @@ public class ShoppingCart implements Serializable{
 	}
 	
 	
-	public AppUser getUser() {
-		return user;
-	}
-	
-	
-	public void setUser(AppUser user) {
-		this.user = user;
-	}
-	
+
 	
 	public Discount getCartDisc() {
 		return cartDisc;

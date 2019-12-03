@@ -2,7 +2,7 @@ package com.mypicknpay.webApi.controller;
 
 import java.io.IOException;
 
-import javax.annotation.Resource;
+
 import javax.annotation.security.PermitAll;
 import javax.validation.Valid;
 
@@ -39,7 +39,7 @@ import com.mypicknpay.webApi.service.ImageService;
 import com.mypicknpay.webApi.service.ProductService;
 import org.springframework.http.MediaType;
 import org.springframework.http.HttpHeaders;
-import java.util.Arrays;
+
 
 @ComponentScan(basePackages= {"com.mypicknpay.webApi.service","com.mypicknpay.webApi.security.config"})
 @Controller

@@ -57,8 +57,21 @@ public class Address implements Serializable {
 	
 	
 
-	
-	
+	public Address(AppUser appUser, boolean is_Local, String c_Street_Address, String c_City, int c_Postal_Code,
+			String c_Province) {
+		super();
+		this.appUser = appUser;
+		this.is_Local = is_Local;
+		this.c_Street_Address = c_Street_Address;
+		this.c_City = c_City;
+		this.c_Postal_Code = c_Postal_Code;
+		this.c_Province = c_Province;
+	}
+
+
+
+
+
 
 	public Long getId() {
 		return add_id;

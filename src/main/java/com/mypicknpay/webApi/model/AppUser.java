@@ -84,7 +84,16 @@ public class AppUser implements Serializable{
     private Smart_Shopper smart_card;
     
     
-    
+	
+	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "appUser_Id",referencedColumnName = "cart_Id")
+    private ShoppingCart cart;
+	
+	
+	 @OneToMany(cascade = CascadeType.ALL,
+	            fetch = FetchType.LAZY,
+	            mappedBy = "user")
+	 private Set<Order> orders;
    
 
 
@@ -104,6 +113,42 @@ public class AppUser implements Serializable{
 	
 
 	
+	public AppUser(String name, String c_Surname, String c_Password, String emailAddress, String c_Cell_Number,
+			String c_Home_Number, String c_Id_Num, Set<Address> address, Smart_Shopper smart_card, Set<Order> orders,
+			Set<Role> roles, int active) {
+		super();
+		this.name = name;
+		this.c_Surname = c_Surname;
+		this.c_Password = c_Password;
+		this.emailAddress = emailAddress;
+		this.c_Cell_Number = c_Cell_Number;
+		this.c_Home_Number = c_Home_Number;
+		this.c_Id_Num = c_Id_Num;
+		this.address = address;
+		this.smart_card = smart_card;
+		this.orders = orders;
+		this.roles = roles;
+		this.active = active;
+	}
+
+
+
+
+
+
+
+
+	public Set<Order> getOrders() {
+		return orders;
+	}
+
+
+
+	public void setOrders(Set<Order> orders) {
+		this.orders = orders;
+	}
+
+
 	public Smart_Shopper getSmart_card() {
 		return smart_card;
 	}
@@ -228,6 +273,16 @@ public class AppUser implements Serializable{
 
 	public void setActive(int active) {
 		this.active = active;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "AppUser [c_id=" + c_id + ", name=" + name + ", c_Surname=" + c_Surname + ", c_Password=" + c_Password
+				+ ", emailAddress=" + emailAddress + ", c_Cell_Number=" + c_Cell_Number + ", c_Home_Number="
+				+ c_Home_Number + ", c_Id_Num=" + c_Id_Num + ", address=" + address + ", smart_card=" + smart_card
+				+ ", orders=" + orders + ", roles=" + roles + ", active=" + active + "]";
 	}
 
 

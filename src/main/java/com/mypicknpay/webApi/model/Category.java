@@ -3,6 +3,7 @@ package com.mypicknpay.webApi.model;
 
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -45,12 +46,24 @@ public class Category implements Serializable {
 	  private Integer categoryType;
 	 
 
+	 /*
+	  * joins category_tbl and product_tbl
+	  * 
+	  * */
 	 @OneToMany(cascade = CascadeType.ALL,
 	            fetch = FetchType.LAZY,
 	            mappedBy = "category")
 	private Set<Product> products;
 
 
+	 
+	 @OneToMany(cascade = CascadeType.ALL,
+	            fetch = FetchType.LAZY,
+	            mappedBy = "category")
+	 private List<ProductDisplay> productDisplay;
+	 
+	 
+	 
 	 //private Date createTime;
 
 	 //private Date updateTime;
@@ -63,6 +76,18 @@ public class Category implements Serializable {
 
 	public Set<Product> getProducts() {
 		return products;
+	}
+
+
+
+	public List<ProductDisplay> getProductDisplay() {
+		return productDisplay;
+	}
+
+
+
+	public void setProductDisplay(List<ProductDisplay> productDisplay) {
+		this.productDisplay = productDisplay;
 	}
 
 
@@ -84,8 +109,6 @@ public class Category implements Serializable {
 		
 		
 	}
-	
-	
 	
 	
 	
@@ -127,7 +150,7 @@ public class Category implements Serializable {
 	@Override
 	public String toString() {
 		return "Category [cat_Id=" + cat_Id + ", categoryName=" + categoryName + ", categoryType=" + categoryType
-				+ ", products=" + products + "]";
+				+ ", products=" + products + ", productDisplay=" + productDisplay + "]";
 	}
 
 }
