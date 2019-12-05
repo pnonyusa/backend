@@ -1,6 +1,7 @@
 package com.mypicknpay.webApi.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -45,19 +46,37 @@ public class Order implements Serializable {
 	 
 	 private String trackingNumber;
 	 
-	 
+	 private Date date;
 
 	 
 	 
 
 	
 	
-	public Order(Long id, AppUser user, Set<OrderList> orderDetails, String trackingNumber) {
+	public Date getDate() {
+		return date;
+	}
+
+
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+
+
+
+
+
+
+
+	public Order(AppUser user, Set<OrderList> orderDetails, String trackingNumber, Date date) {
 		super();
-		this.id = id;
 		this.user = user;
 		this.orderDetails = orderDetails;
 		this.trackingNumber = trackingNumber;
+		this.date = date;
 	}
 
 

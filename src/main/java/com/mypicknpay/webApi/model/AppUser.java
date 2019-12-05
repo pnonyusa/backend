@@ -113,9 +113,17 @@ public class AppUser implements Serializable{
 	
 
 	
+	
+
+
+
+
+
+      
+
 	public AppUser(String name, String c_Surname, String c_Password, String emailAddress, String c_Cell_Number,
-			String c_Home_Number, String c_Id_Num, Set<Address> address, Smart_Shopper smart_card, Set<Order> orders,
-			Set<Role> roles, int active) {
+			String c_Home_Number, String c_Id_Num, Set<Address> address, Smart_Shopper smart_card, ShoppingCart cart,
+			Set<Order> orders, Set<Role> roles, int active) {
 		super();
 		this.name = name;
 		this.c_Surname = c_Surname;
@@ -126,9 +134,58 @@ public class AppUser implements Serializable{
 		this.c_Id_Num = c_Id_Num;
 		this.address = address;
 		this.smart_card = smart_card;
+		this.cart = cart;
 		this.orders = orders;
 		this.roles = roles;
 		this.active = active;
+	}
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public ShoppingCart getCart() {
+		return cart;
+	}
+
+
+
+
+
+
+
+
+	public void setCart(ShoppingCart cart) {
+		this.cart = cart;
 	}
 
 
@@ -277,19 +334,17 @@ public class AppUser implements Serializable{
 
 
 
+	
+
+
+	
 	@Override
 	public String toString() {
 		return "AppUser [c_id=" + c_id + ", name=" + name + ", c_Surname=" + c_Surname + ", c_Password=" + c_Password
 				+ ", emailAddress=" + emailAddress + ", c_Cell_Number=" + c_Cell_Number + ", c_Home_Number="
 				+ c_Home_Number + ", c_Id_Num=" + c_Id_Num + ", address=" + address + ", smart_card=" + smart_card
-				+ ", orders=" + orders + ", roles=" + roles + ", active=" + active + "]";
+				+ ", cart=" + cart + ", orders=" + orders + ", roles=" + roles + ", active=" + active + "]";
 	}
-
-
-	
-	
-	
-	
 	
 
 }

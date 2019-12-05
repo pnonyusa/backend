@@ -38,7 +38,7 @@ public class Category implements Serializable {
 	private Long cat_Id;
 	
 	
-	private String categoryName;
+	private String name;
 	
 	
 	
@@ -80,6 +80,16 @@ public class Category implements Serializable {
 
 
 
+	public Category(String name, Integer categoryType, Set<Product> products, List<ProductDisplay> productDisplay) {
+		
+		this.name = name;
+		this.categoryType = categoryType;
+		this.products = products;
+		this.productDisplay = productDisplay;
+	}
+
+
+
 	public List<ProductDisplay> getProductDisplay() {
 		return productDisplay;
 	}
@@ -98,10 +108,6 @@ public class Category implements Serializable {
 
 
 
-	public Category(String categoryName, Integer categoryType) {
-		this.categoryName = categoryName;
-		this.categoryType = categoryType;
-	}
 
 
 
@@ -125,15 +131,10 @@ public class Category implements Serializable {
 
 
 
-	public String getCategoryName() {
-		return categoryName;
-	}
+	
 
 
-
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
-	}
+	
 
 
 
@@ -145,12 +146,28 @@ public class Category implements Serializable {
 	public void setCategoryType(Integer categoryType) {
 		this.categoryType = categoryType;
 	}
-	
-	
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Category [cat_Id=" + cat_Id + ", categoryName=" + categoryName + ", categoryType=" + categoryType
-				+ ", products=" + products + ", productDisplay=" + productDisplay + "]";
+		return "Category [cat_Id=" + cat_Id + ", name=" + name + ", categoryType=" + categoryType + ", products="
+				+ products + ", productDisplay=" + productDisplay + "]";
 	}
+	
+	
+	
 
 }

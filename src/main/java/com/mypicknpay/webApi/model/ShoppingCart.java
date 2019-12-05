@@ -14,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import java.util.List;
@@ -63,6 +63,9 @@ public class ShoppingCart implements Serializable{
 	 private List<ShoppingList> shopList;
 	 
 	 
+	 @OneToOne
+	 @JoinColumn(name = "appUser_Id")
+	 private AppUser user;
 	 
 	 private double totalPrice;
 	 
@@ -74,26 +77,41 @@ public class ShoppingCart implements Serializable{
 	 
 	 
 	 
-	 public ShoppingCart(Discount cartDisc, List<ShoppingList> shopList, double totalPrice, double totalNetPrice,
-			Date dateCreated) {
-		
-		this.cartDisc = cartDisc;
-		this.shopList = shopList;
-		this.totalPrice = totalPrice;
-		this.totalNetPrice = totalNetPrice;
-		this.dateCreated = dateCreated;
-	}
+	
 
 
 	
 
 	 
-	 public ShoppingCart() {
+	 public ShoppingCart(Discount cartDisc, List<ShoppingList> shopList, AppUser user, double totalPrice,
+			double totalNetPrice, Date dateCreated) {
+		super();
+		this.cartDisc = cartDisc;
+		this.shopList = shopList;
+		this.user = user;
+		this.totalPrice = totalPrice;
+		this.totalNetPrice = totalNetPrice;
+		this.dateCreated = dateCreated;
+	}
+
+	public ShoppingCart() {
 		 
 		 
 	 }
 
-	 public Long getId() {
+	
+	
+	
+	
+	 public AppUser getUser() {
+		return user;
+	}
+
+	public void setUser(AppUser user) {
+		this.user = user;
+	}
+
+	public Long getId() {
 		return id;
 	 }
 	 
