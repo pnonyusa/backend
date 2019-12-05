@@ -19,6 +19,7 @@ import com.mypicknpay.webApi.repository.ShoppingCartRepository;
 import com.mypicknpay.webApi.repository.ShoppingListRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -51,6 +52,15 @@ public class ShoppingCartService {
 	
 	@Autowired
 	private ShoppingListRepository shoppingListRepo;
+	
+	
+	
+	
+	
+	/**
+	 * The method will add the products to cart
+	 * 
+	 * */
 	
 	public ShoppingCart addToShoppingCart(Principal principal, Long id, Integer amount) {
 		AppUser user=getUserFromPrinciple(principal);
@@ -117,6 +127,57 @@ public class ShoppingCartService {
 		
 		return cart;
 	}
+	
+	
+	
+	/**
+	 * The method remove the products from   cart
+	 * 
+	 * */
+	public ShoppingCart removeItemFromCart(Principal principal,Long id) {
+		
+		AppUser user=getUserFromPrinciple(principal);
+		ShoppingCart cart=user.getCart();
+		
+		if(cart==null) {
+			
+			throw new IllegalArgumentException("Cart not found");
+		}
+		
+		List<ShoppingList> cartItem =cart.getShopList();
+		ShoppingList cartItemToDelete=null;
+		
+		for(int x=0;x<cartItem.size();x++) {
+			
+			if(cartItem.get(x).getId().equals(id)) {
+				
+				cartItemToDelete=cartItem.get(x);
+			}
+		}
+		
+		if(cartItemToDelete==null) {
+			
+			throw new IllegalArgumentException("CartItem not found");
+		}
+		
+		
+		cartItem.remove(cartItemToDelete);
+		
+		if(cart.getShopList()==null || cart.getShopList().size()==0) {
+			user.setCart(null);
+			userRepository.save(user);
+		}
+		
+		cart.setShopList(cartItem);
+		cart=priceService.calculateCart(cart);
+		
+		shoppingListRepo.delete(cartItemToDelete);
+		
+		
+		return cart;
+	}
+	
+	
 	
 	
 	
