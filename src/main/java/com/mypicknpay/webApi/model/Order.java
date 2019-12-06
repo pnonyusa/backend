@@ -2,6 +2,7 @@ package com.mypicknpay.webApi.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -41,7 +42,7 @@ public class Order implements Serializable {
 	 @OneToMany(cascade = CascadeType.ALL,
 	            fetch = FetchType.LAZY,
 	            mappedBy = "order")
-	 private Set<OrderList> orderDetails;
+	 private List<OrderList> orderDetails;
 
 	 
 	 private String trackingNumber;
@@ -71,7 +72,7 @@ public class Order implements Serializable {
 
 
 
-	public Order(AppUser user, Set<OrderList> orderDetails, String trackingNumber, Date date) {
+	public Order(AppUser user, List<OrderList> orderDetails, String trackingNumber, Date date) {
 		super();
 		this.user = user;
 		this.orderDetails = orderDetails;
@@ -125,12 +126,12 @@ public class Order implements Serializable {
 	}
 
 
-	public Set<OrderList> getOrderDetails() {
+	public List<OrderList> getOrderDetails() {
 		return orderDetails;
 	}
 
 
-	public void setOrderDetails(Set<OrderList> orderDetails) {
+	public void setOrderDetails(List<OrderList> orderDetails) {
 		this.orderDetails = orderDetails;
 	}
 
